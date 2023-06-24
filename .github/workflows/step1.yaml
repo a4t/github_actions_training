@@ -32,4 +32,6 @@ jobs:
       run: echo World
       
     - name: echo env
-      run: echo ${{ github.event.inputs.env }}
+      run: |
+        echo ${{ github.event.inputs.env }}
+        echo ${{ inputs.env }}
