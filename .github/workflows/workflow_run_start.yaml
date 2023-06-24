@@ -1,0 +1,16 @@
+name: workflow_run_start
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: hello
+      run: echo Hello
+
+    - name: world
+      run: echo World
