@@ -33,5 +33,4 @@ jobs:
       
     - name: echo env
       run: |
-        echo ${{ github.event.inputs.env }}
         echo ${{ inputs.env }}
