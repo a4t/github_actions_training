@@ -16,7 +16,7 @@ jobs:
         run: |
           [[ ${{ github.ref_name }} == main ]] && ENV=prd || ENV=dev
           echo $ENV
-          echo "env=${ENV}" >> $GITHUB_STATE
+          echo "env=${ENV}" >> $GITHUB_OUTPUT
 
   step1:
     needs: convert_env
