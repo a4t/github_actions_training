@@ -5,5 +5,5 @@ on:
 
 jobs:
   build:
-    - uses: ./.github/workflows/step1.yaml
-    - uses: ./.github/workflows/step2.yaml
+    uses: ./.github/workflows/step1.yaml
+    uses: ./.github/workflows/step2.yaml
