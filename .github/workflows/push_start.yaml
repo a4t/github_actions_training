@@ -14,7 +14,7 @@ jobs:
       - name: convert
         id: convert
         run: |
-          [[ ${{ github.ref_name }} == main ]] ENV=prd || ENV=dev
+          [[ ${{ github.ref_name }} == main ]] && ENV=prd || ENV=dev
           echo "::set-output name=env::$ENV"
 
   step1:
