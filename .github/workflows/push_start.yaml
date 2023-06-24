@@ -8,7 +8,12 @@ on:
 jobs:
   step1:
     uses: ./.github/workflows/step1.yaml
+    with:
+      env: dev
+
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yaml
+    with:
+      env: dev
   

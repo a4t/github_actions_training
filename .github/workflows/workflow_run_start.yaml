@@ -2,10 +2,21 @@ name: workflow_run_start
 
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: 'env'
+        required: true
+        default: 'dev'
 
 jobs:
   step1:
     uses: ./.github/workflows/step1.yaml
+    with:
+      env: ${{ github.event.inputs.env }}
+
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yaml
+    with:
+      env: ${{ github.event.inputs.env }}
+

@@ -2,6 +2,13 @@ name: step2
 
 on:
   workflow_call:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'env name'
+        required: true
+        default: 'dev'
+  
 
 jobs:
   build:
@@ -18,4 +25,6 @@ jobs:
 
     - name: world
       run: echo World
-      
+
+    - name: echo env
+      run: ${{ github.event.inputs.env }}
