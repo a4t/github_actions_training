@@ -9,14 +9,26 @@ on:
         default: 'dev'
 
 jobs:
+  convert_env:
+    runs-on: ubuntu-latest
+    outputs:
+      env: ${{ steps.convert.outputs.env }}
+    steps:
+      - name: convert
+        id: convert
+        run: |
+          [[${{ github.ref_name }} == main ]] ENV=prd || ENV=dev
+          echo "::set-output name=env::$ENV"
+
   step1:
+    needs: convert_env
     uses: ./.github/workflows/step1.yaml
     with:
-      env: ${{ github.event.inputs.env }}
+      env: ${{ needs.convert_env.outputs.env }}
 
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yaml
     with:
-      env: ${{ github.event.inputs.env }}
+      env: ${{ needs.convert_env.outputs.env }}
 
