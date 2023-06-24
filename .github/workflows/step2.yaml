@@ -2,6 +2,12 @@ name: step2
 
 on:
   workflow_call:
+    inputs:
+      env:
+        description: 'env name'
+        required: true
+        type: string
+
   workflow_dispatch:
     inputs:
       env:
