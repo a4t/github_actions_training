@@ -5,12 +5,12 @@ on:
 
 jobs:
   build:
+    - uses: ./.github/workflows/step1
+    - uses: ./.github/workflows/step2
+  
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
     - name: echo branch name
       run: git branch --show-current
-
-    - uses: ./.github/workflows/step1
-    - uses: ./.github/workflows/step2
