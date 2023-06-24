@@ -1,8 +1,11 @@
-name: workflow_run_step1
+name: step1
 
 on:
   workflow_run:
-    workflows: ["workflow_run_start"]
+    workflows: [
+      "workflow_run_start",
+      "push_start",
+    ]
     types:
       - completed
 
@@ -13,7 +16,9 @@ jobs:
     - uses: actions/checkout@v2
   
     - name: echo branch name
-      run: echo ${{ github.event.workflow_run.head_branch }} 
+      run: |
+        echo ${{ github.event.workflow_run.head_branch }} 
+        git branch --show-current
 
     - name: hello
       run: echo Hello

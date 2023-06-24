@@ -1,0 +1,22 @@
+name: push_start
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: echo branch name
+      run: git branch --show-current
+
+    - name: hello
+      run: echo Hello
+
+    - name: world
+      run: echo World
+      
