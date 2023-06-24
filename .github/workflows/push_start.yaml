@@ -1,23 +1,22 @@
-name: workflow_run_step1
+name: push_start
 
 on:
-  workflow_run:
-    workflows: ["workflow_run_start"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-  
+
     - name: echo branch name
-      run: echo ${{ github.event.workflow_run.head_branch }} 
+      run: git branch --show-current
 
     - name: hello
       run: echo Hello
-  
+
     - name: world
       run: echo World
       
