@@ -4,5 +4,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:  
-    uses: ./.github/workflows/step1.yaml
+  build:
+    - uses: ./.github/workflows/step1.yaml
+    - uses: ./.github/workflows/step2.yaml
