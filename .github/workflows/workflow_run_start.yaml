@@ -7,4 +7,5 @@ jobs:
   step1:
     uses: ./.github/workflows/step1.yaml
   step2:
+    needs: step1
     uses: ./.github/workflows/step2.yaml
