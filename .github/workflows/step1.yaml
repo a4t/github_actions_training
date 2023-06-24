@@ -19,10 +19,9 @@ jobs:
 
     - name: echo branch name
       run: |
-        echo ${{ github.event.workflow_run.head_branch }} 
+        git checkout ${{ github.event.workflow_run.head_branch }}
         git branch --show-current
         
-
     - name: hello
       run: echo Hello
   
