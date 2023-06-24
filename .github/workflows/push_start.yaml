@@ -18,6 +18,13 @@ jobs:
           echo $ENV
           echo "env=${ENV}" >> $GITHUB_OUTPUT
 
+  test:
+    needs: convert_env
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo ${{ needs.convert_env.outputs.env }}
+
   step1:
     needs: convert_env
     uses: ./.github/workflows/step1.yaml
