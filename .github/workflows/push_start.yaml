@@ -1,10 +1,12 @@
-name: workflow_run_start
+name: push_start
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:  
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -12,6 +14,6 @@ jobs:
     - name: echo branch name
       run: git branch --show-current
 
-    - uses: ./.github/workflows/step1.yaml
-    - uses: ./.github/workflows/step2.yaml
+    - uses: ./.github/workflows/step1
+    - uses: ./.github/workflows/step2
   

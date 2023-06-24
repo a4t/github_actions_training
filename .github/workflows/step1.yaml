@@ -1,0 +1,21 @@
+name: step1
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: echo branch name
+      run: |
+        git branch --show-current
+        
+    - name: hello
+      run: echo Hello
+  
+    - name: world
+      run: echo World
+      
