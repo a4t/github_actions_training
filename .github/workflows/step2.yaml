@@ -10,14 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-  
-    - name: echo branch name
-      run: git branch --show-current
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
 
-    - name: hello
-      run: echo Hello
+      - name: echo branch name
+        run: |
+          echo ${{ github.event.workflow_run.head_branch }} 
+          git branch --show-current
+
+      - name: hello
+        run: echo Hello
   
-    - name: world
-      run: echo World
+      - name: world
+        run: echo World
       
