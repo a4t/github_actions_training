@@ -12,8 +12,5 @@ jobs:
     - name: echo branch name
       run: git branch --show-current
 
-    - name: hello
-      run: echo Hello
-
-    - name: world
-      run: echo World
+    - uses: ./.github/workflows/step1
+    - uses: ./.github/workflows/step2

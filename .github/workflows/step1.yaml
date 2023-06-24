@@ -1,25 +1,16 @@
 name: step1
 
 on:
-  workflow_run:
-    workflows: [
-      "workflow_run_start",
-      "push_start",
-    ]
-    types:
-      - completed
+  workflow_call:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.workflow_run.head_branch }}
 
     - name: echo branch name
       run: |
-        git checkout ${{ github.event.workflow_run.head_branch }}
         git branch --show-current
         
     - name: hello
