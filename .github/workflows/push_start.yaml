@@ -36,4 +36,10 @@ jobs:
     uses: ./.github/workflows/step2.yaml
     with:
       env: ${{ needs.convert_env.outputs.env }}
-  
+
+  debug:
+    runs-on: ubuntu-latest
+    needs: [step1, step2]
+    steps:
+      - name: echo
+        run: echo ${{ needs.convert_env.outputs.env }}
