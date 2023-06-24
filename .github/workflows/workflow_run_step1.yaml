@@ -12,6 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
   
+    - name: echo branch name
+      run: echo ${{ github.event.workflow_run.head_branch }} 
+
     - name: hello
       run: echo Hello
   

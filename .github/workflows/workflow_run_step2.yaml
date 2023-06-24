@@ -12,6 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
   
+    - name: echo branch name
+      run: git branch --show-current
+
     - name: hello
       run: echo Hello
   
