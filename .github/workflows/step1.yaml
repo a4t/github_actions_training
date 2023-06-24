@@ -2,6 +2,12 @@ name: step1
 
 on:
   workflow_call:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'env name'
+        required: true
+        default: 'dev'
 
 jobs:
   build:
